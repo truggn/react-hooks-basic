@@ -1,0 +1,16 @@
+- lưu ý khi sử dụng useState:
++) là 1 hook cơ bản
++) giúp fuction component sử dụng dc State
++) input là 1 giá trị hoặc 1 function
++) output là 1 mảng có 2 phần tử là state và setState (hàm giúp mình cập nhật lại giá trị mới cho state)
+
+=lưu ý khi dùng state :
++) useState sử dụng replacing chứ ko phải merging
++) useState in fuctional component REPLACING
++) initial state chỉ dùng cho lần đầu, những lần sau bị bỏ rơi.
+
+===> TỔNG KẾT:
++) useState() giúp function component có thể dùng state 
++) useState() trả vể 1 mảng 2 phần tử [name và setName]
++) useState() áp dụng replacing thay vì marging như bên class component
++) initial state callback chỉ thử thi 1 lần
