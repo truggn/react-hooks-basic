@@ -2,3 +2,5 @@
 - Có 2 loại cần Clean up và ko cần Clean up
 +) không cần clean up như : call api, dom
 +) cần clean up như: set timeout, setInterval (nếu cứ chạy chạy... thì  conponent bị unmount thì sẽ error )
+
+- useRef:

@@ -6,6 +6,7 @@ import Pagination from './component/pagination';
 import PostList from './component/postlist';
 import TodoForm from './component/todoform';
 import TodoList from './component/todolist';
+import PostFilter from './component/postfilter'
 import queryString from 'query-string';
 
 function App() {
@@ -38,8 +39,6 @@ function App() {
     setTodoList(newTodoList)
   };
 
-
-
   // Load api
   const [postsList, setPostList] = useState([])
 
@@ -52,17 +51,26 @@ function App() {
 
   const [filters, setFilters] = useState({
     _limit: 10,
-    _page: 1,
+    _page: 1
   });
 
   function handlePageChange(newPage) {
-
-    console.log("new page", newPage);
     setFilters({
       ...filters,
       _page: newPage
     });
   };
+
+  // seach form 
+  function handleFilterItemPost(newFilters) {
+    setFilters({
+      ...filters,
+      _page: 1,
+      _limit: 10,
+      title_like: newFilters.searchItem
+    })
+  }
+
 
   useEffect(() => {
     // chay dung 1 lan
@@ -96,6 +104,7 @@ function App() {
       <h1>Change ColorBox</h1>
       <ColorBox />
       <h1>Call API</h1>
+      <PostFilter onSubmit={handleFilterItemPost} />
       <PostList posts={postsList} />
       <Pagination
         pagination={pagination}
