@@ -7,6 +7,7 @@ import PostList from './component/postlist';
 import TodoForm from './component/todoform';
 import TodoList from './component/todolist';
 import PostFilter from './component/postfilter'
+import ClockApp from './component/clock'
 import queryString from 'query-string';
 
 function App() {
@@ -78,7 +79,6 @@ function App() {
       try {
 
         const paramString = queryString.stringify(filters)
-        console.log(filters);
         // call api 
         const requestUrl = `http://js-post-api.herokuapp.com/api/posts?${paramString}`;
         const response = await fetch(requestUrl)
@@ -94,9 +94,15 @@ function App() {
     fetAPIPostList()
   }, [filters]);
 
+  //Clock
+  const [showClock, setShowClock] = useState(true)
+
 
   return (
     <div className="app">
+      <h1>Đồng hồ</h1>
+      {showClock && <ClockApp />}
+      <button onClick={() => setShowClock(false)}>Hide clock</button>
       <h1>Todo Form </h1>
       <TodoForm onSubmit={handleTodoFormSubmit} />
       <h1>Todo List!</h1>
