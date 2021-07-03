@@ -8,6 +8,7 @@ import TodoForm from './component/todoform';
 import TodoList from './component/todolist';
 import PostFilter from './component/postfilter'
 import ClockApp from './component/clock'
+import BetterClock from './component/BetterClock';
 import queryString from 'query-string';
 
 function App() {
@@ -100,9 +101,11 @@ function App() {
 
   return (
     <div className="app">
-      <h1>Đồng hồ</h1>
+      <h1>Đồng hồ 1</h1>
       {showClock && <ClockApp />}
       <button onClick={() => setShowClock(false)}>Hide clock</button>
+      <h2>Đồng hồ 2</h2>
+      <BetterClock />
       <h1>Todo Form </h1>
       <TodoForm onSubmit={handleTodoFormSubmit} />
       <h1>Todo List!</h1>

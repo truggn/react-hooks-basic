@@ -1,0 +1,5 @@
+- là gì: là 1 function đặc biệt do mình tự định nghĩa, nó có thể sử dụng dc cái hooks khác.
+- sử dụng khi nào:
+- đặt tên theo useABC(), sử dụng tiền tố use đầu .
+- nó return về dữ liệu, tùy ý mình quết định.
+- 

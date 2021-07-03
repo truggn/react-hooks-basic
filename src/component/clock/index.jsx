@@ -1,34 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
+import useClock from '../../hooks/useClock';
 
 
 ClockApp.propTypes = {};
 
+function ClockApp() {
 
-function formatDate(date) {
-    const hours = `0${date.getHours()}`.slice(-2);
-    const minute = `0${date.getMinutes()}`.slice(-2);
-    const seconds = `0${date.getSeconds()}`.slice(-2)
-    return `${hours}: ${minute} : ${seconds}`;
-}
+    const { timeString } = useClock();
 
-function ClockApp(props) {
-    const [timeString, setTimeString] = useState('')
-
-
-    useEffect(() => {
-        const interval = setInterval(() => {
-
-            // hh/mm/ss
-            const now = new Date();
-            const newTimeString = formatDate(now)
-            setTimeString(newTimeString)
-        }, 1000);
-        return () => {
-            // clean up
-            console.log('Clock clean ');
-            clearInterval(interval);
-        }
-    }, [])
     return (
         <div>
             <p style={{ fontSize: '42px' }}>{timeString}</p>
