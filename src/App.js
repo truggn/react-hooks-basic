@@ -1,7 +1,8 @@
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './App.scss';
 import ColorBox from './component/colorbox';
+import PostList from './component/postlist';
 import TodoForm from './component/todoform';
 import TodoList from './component/todolist';
 
@@ -34,7 +35,29 @@ function App() {
     const newTodoList = [...todoList];
     newTodoList.push(newTodo);
     setTodoList(newTodoList)
-  }
+  };
+
+  // Load api
+  const [postsList, setPostList] = useState([])
+
+  useEffect(() => {
+    // chay dung 1 lan
+    async function fetAPIPostList() {
+      try {
+        // call api 
+        const requestUrl = 'http://js-post-api.herokuapp.com/api/posts?_limit=10&_page=1';
+        const response = await fetch(requestUrl)
+        const responseParseJson = await response.json()
+
+        const { data } = responseParseJson;
+        setPostList(data)
+      } catch (error) {
+        console.log('failed to fetch post list', error.message);
+      }
+    }
+    fetAPIPostList()
+  }, [])
+
 
   return (
     <div className="app">
@@ -44,6 +67,8 @@ function App() {
       <TodoList todos={todoList} onTodoClick={handleTodoClick} />
       <h1>Change ColorBox</h1>
       <ColorBox />
+      <h1>Call API</h1>
+      <PostList posts={postsList} />
     </div>
   );
 }

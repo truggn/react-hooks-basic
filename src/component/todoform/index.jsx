@@ -17,7 +17,6 @@ function TodoForm(props) {
 
 
     function handelValueChange(e) {
-        console.log(e.target.value);
         setValues(e.target.value)
     };
 
