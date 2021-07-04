@@ -9,6 +9,7 @@ import TodoList from './component/todolist';
 import PostFilter from './component/postfilter'
 import ClockApp from './component/clock'
 import BetterClock from './component/BetterClock';
+import MagicBox from './component/magicboox';
 import queryString from 'query-string';
 
 function App() {
@@ -112,6 +113,8 @@ function App() {
       <TodoList todos={todoList} onTodoClick={handleTodoClick} />
       <h1>Change ColorBox</h1>
       <ColorBox />
+      <h2>Magic Color Box</h2>
+      <MagicBox />
       <h1>Call API</h1>
       <PostFilter onSubmit={handleFilterItemPost} />
       <PostList posts={postsList} />
